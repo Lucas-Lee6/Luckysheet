@@ -6148,8 +6148,8 @@ export default {
         titleNumber: "数字格式",
     },
     info: {
-        detailUpdate: "新打开",
-        detailSave: "已恢复本地缓存",
+        detailUpdate: "", // 新打开
+        detailSave: "", // 已恢复本地缓存
         row: "行",
         column: "列",
         loading: "渲染中···",

@@ -5135,7 +5135,7 @@ export default function luckysheetHandler() {
             value = $("#luckysheet-bottom-add-row-input").val();
 
         if (value == "") {
-            value = luckysheetConfigsetting.addRowCount || 100;
+            value = luckysheetConfigsetting.addRowCount || 10;
         }
 
         if (isNaN(parseInt(value))) {
