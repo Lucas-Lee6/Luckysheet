@@ -181,7 +181,7 @@ function selectHightlightShow(isRestore = false) {
         if (Store.luckysheet_select_save.length == 1 && Store.luckysheet_select_save[0].row[0] == Store.luckysheet_select_save[0].row[1] && Store.luckysheet_select_save[0].column[0] == Store.luckysheet_select_save[0].column[1]) {
             dynamicArrayHightShow(Store.luckysheet_select_save[0].row[0], Store.luckysheet_select_save[0].column[0]);
         }
-    
+
         /* 刷新当前状态栏 */
         refreshMenuButtonFocus();
     }
@@ -193,7 +193,7 @@ function selectHightlightShow(isRestore = false) {
         if(Store.luckysheet_select_save_previous == null |Store.luckysheet_select_save_previous !== luckysheet_select_save_previous){
             method.createHookFunction('rangeSelect', Store.luckysheetfile[getSheetIndex(Store.currentSheetIndex)], Store.luckysheet_select_save);
         }
-        
+
         Store.luckysheet_select_save_previous = luckysheet_select_save_previous;
 }
 
@@ -510,7 +510,7 @@ function luckysheet_count_show(left, top, width, height, rowseleted, columnselet
             topv = scrollHeight + drawHeight / 2;
         }
 
-        $("#luckysheet-row-count-show").css({ "left": leftv, "top": topv, "display": "block", "width": "11px" }).html("<div>" + rowl.toString().split("").join("</div><div>") + "</div><div>" + locale_info.row + "</div>");
+        $("#luckysheet-row-count-show").css({ "left": leftv, "top": topv, "display": "block", "width": "11px","line-height": "11px" }).html("<div>" + rowl.toString().split("").join("</div><div>") + "</div><div style='margin-top:3px'>" + locale_info.row + "</div>");
     }
     else {
         $("#luckysheet-row-count-show").hide();

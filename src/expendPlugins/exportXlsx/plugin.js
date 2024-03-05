@@ -22,10 +22,10 @@ function downloadXlsx(data, filename) {
 }
 
 /**
- * 
- * @param {*} url 
- * @param {*} success 
- * @param {*} fail 
+ *
+ * @param {*} url
+ * @param {*} success
+ * @param {*} fail
  */
 function fetchAndDownloadXlsx({url,order}, success, fail) {
     const luckyJson = luckysheet.toJson();
@@ -75,8 +75,8 @@ function createExportDialog(url) {
         let content = `<div class="luckysheet-export-xlsx-content" style="padding: 10px 10px 10px 0;">
                 <span>${locale_exportXlsx.range}</span>
                 <select class="luckysheet-export-xlsx-select-area">
-                    <option value="allSheets" selected="selected">${locale_exportXlsx.allSheets}</option>
-                    <option value="currentSheet">${locale_exportXlsx.currentSheet}</option>
+                    <option value="currentSheet" selected="selected">${locale_exportXlsx.currentSheet}</option>
+                    <option value="allSheets">${locale_exportXlsx.allSheets}</option>
                 </select>
         </div>`;
 
@@ -87,12 +87,12 @@ function createExportDialog(url) {
                 title: locale_exportXlsx.title,
                 content: content,
                 botton: `<button class="btn btn-primary luckysheet-model-confirm-btn">${locale_button.confirm}</button><button class="btn btn-default luckysheet-model-close-btn">${locale_button.close}</button>`,
-                style: "z-index:991",
+                style: "z-index:10000",
                 close: locale_button.close,
             }),
         );
 
-        selectedOption = 'allSheets'
+        selectedOption = 'currentSheet'
 
         // init event
         $("#luckysheet-export-xlsx .luckysheet-model-confirm-btn").on('click',()=>{
