@@ -13,16 +13,16 @@ export function exportSheetExcel(luckySheet,luckyJson,name='新建工作表') { 
     }else{
         tableArr = [luckyJson.data[luckyJson.exportXlsx.order]];
     }
-    console.log('tableArr',tableArr)
-    tableArr.forEach(table=>{
-        console.log('tabletable',table)
+    // console.log('tableArr',tableArr)
+    tableArr.forEach(function(table) {
+        // console.log('tabletable',table)
         if (table.data.length === 0) return  true
         // ws.getCell('B2').fill = fills.
         const worksheet = workbook.addWorksheet(table.name)
         setStyleAndValue(table.data, worksheet);
         setMerge(table.config.merge, worksheet);
         setBorder(table, worksheet);
-        // setImages(table, worksheet, workbook);
+        setImages(table, worksheet, workbook);
         return true
     })
 
@@ -61,7 +61,6 @@ var setMerge = function (luckyMerge = {}, worksheet) {
 
 //获取图片在单元格的位置
 var  getImagePosition =function(num,arr){
-    console.log('getImagePosition',num,arr)
     let index = 0;
     let minIndex;
     let maxIndex;
@@ -91,16 +90,11 @@ var  getImagePosition =function(num,arr){
 }
 
 var setImages = function (table, worksheet, workbook) {
-    // let {
-    //     images,
-    //     visibledatacolumn,//所有行的位置
-    //     visibledatarow //所有列的位置
-    // } = {...table}
-    console.log('table, worksheet, workbook',table, worksheet, workbook)
+    // console.log('table, worksheet, workbook',table, worksheet, workbook)
     let images = table.images
-    let visibledatacolumn = table.visibledatacolumn
-    let visibledatarow = table.visibledatarow
-    console.log('visibledatacolumn',images, visibledatacolumn,visibledatarow)
+    let visibledatacolumn = table.visibledatacolumn || 0 //所有行的位置
+    let visibledatarow = table.visibledatarow || 0 //所有列的位置
+    // console.log('visibledatacolumn',images, visibledatacolumn,visibledatarow)
     if (typeof images != 'object') return;
     for (let key in images) {
         // 通过 base64  将图像添加到工作簿
