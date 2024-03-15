@@ -78,7 +78,12 @@
 					updateUrl: "ws://" + location.host + "/luckysheet/websocket/luckysheet",
 					gridKey: gridKey,
 					loadUrl: location.origin + "/luckysheet/api/load",
-					loadSheetUrl: location.origin + "/luckysheet/api/loadsheet"
+					loadSheetUrl: location.origin + "/luckysheet/api/loadsheet",
+					showtoolbarConfig:{
+						chart: false, // '图表'
+						pivotTable: false,  //'数据透视表'
+						print:false, // '打印'
+					},
 				}
 			} else {
 				// http://localhost:3000/
@@ -91,6 +96,11 @@
 					// 	total: 50,
 					// 	selectOption: [10, 20]
 					// },
+					showtoolbarConfig:{
+						chart: false, // '图表'
+						pivotTable: false,  //'数据透视表'
+						print:false, // '打印'
+					},
 					forceCalculation: false,
 					plugins: [{ name: 'chart' }, { name: 'exportXlsx', config: { url: 'http://localhost:3002/luckyToXlsx' } }, {
 						name: 'print', config: {
