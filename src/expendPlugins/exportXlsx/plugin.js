@@ -5,6 +5,7 @@ import { arrayRemoveItem, replaceHtml } from '../../utils/util';
 import tooltip from '../../global/tooltip';
 import { getSheetIndex } from '../../methods/get';
 import Store from '../../store';
+import { exportSheetExcel } from './excelutils.js';
 
 // Initialize the export xlsx api
 function exportXlsx(options, config, isDemo) {
@@ -35,28 +36,31 @@ function fetchAndDownloadXlsx({url,order}, success, fail) {
         luckyJson.exportXlsx = {
             order
         }
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(luckyJson)
-        })
-            .then((response) => response.blob())
-            .then((blob) => {
-                if (blob.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
-                    const filename = luckyJson.title + '.xlsx';
-                    downloadXlsx(blob, filename);
-                    success && success()
-                } else {
-                    fail && fail()
-                }
+        console.log('luckyJson1123',luckyJson)
+        exportSheetExcel(luckysheet, luckyJson, luckyJson.title)
+        success && success()
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(luckyJson)
+        // })
+        // .then((response) => response.blob())
+        // .then((blob) => {
+        //     if (blob.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+        //         const filename = luckyJson.title + '.xlsx';
+        //         downloadXlsx(blob, filename);
+        //         success && success()
+        //     } else {
+        //         fail && fail()
+        //     }
 
-            })
-            .catch((error) => {
-                console.error('fetch error:', error);
-                fail && fail()
-            });
+        // })
+        // .catch((error) => {
+        //     console.error('fetch error:', error);
+        //     fail && fail()
+        // });
     })
 
 

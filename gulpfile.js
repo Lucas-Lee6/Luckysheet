@@ -53,7 +53,7 @@ const babelConfig = {
     exclude: 'node_modules/**', // Only compile our source code
     plugins: [
     ],
-    presets: [
+    bulid: [
         ['@babel/preset-env', {
             useBuiltIns: 'usage',
             corejs: 3,
@@ -219,12 +219,12 @@ async function core() {
 
     await require('esbuild').buildSync({
         format: 'iife',
-        globalName: 'luckysheet',    
+        globalName: 'luckysheet',
         entryPoints: ['src/index.js'],
         bundle: true,
         minify: production,
         banner: { js: banner },
-        target: ['es2015'],
+        target: ['es2020'],
         sourcemap: true,
         outfile: 'dist/luckysheet.umd.js',
       })
