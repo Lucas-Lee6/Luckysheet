@@ -17,6 +17,7 @@ import { luckysheetupdateCell } from "./updateCell";
 import { luckysheet_searcharray } from "./sheetSearch";
 import luckysheetsizeauto from "./resize";
 import { luckysheetMoveHighlightCell } from "./sheetMove";
+import { getRangeValue } from '../global/api'
 import {
     selectHightlightShow,
     selectIsOverlap,
@@ -1566,6 +1567,14 @@ export default function luckysheetHandler() {
             //禁止前台编辑(只可 框选单元格、滚动查看表格)
             if (!Store.allowEdit) {
                 return;
+            }
+
+            // 根据单元格背景色，判断是否禁止单元格编辑
+            const rangeValue = getRangeValue()[0][0];
+            if(rangeValue != null) {
+                if(rangeValue.bg == '#f5f6f7') {
+                    return;
+                }
             }
 
             if (parseInt($("#luckysheet-input-box").css("top")) > 0) {
