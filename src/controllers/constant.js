@@ -21,7 +21,7 @@ const gridHTML = function() {
                             <div class="sheet-name">
                                 <input data-tips="${
                                     locale_info.tips
-                                }" id="luckysheet_info_detail_input" class="luckysheet_info_detail_input luckysheet-mousedown-cancel" value="${
+                                }" id="luckysheet_info_detail_input" autocomplete="off" readonly class="luckysheet_info_detail_input luckysheet-mousedown-cancel" value="${
         locale_info.noName
     }" tabindex="0" dir="ltr" aria-label="${
         locale_info.rename
