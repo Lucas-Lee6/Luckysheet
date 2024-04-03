@@ -147,6 +147,10 @@
     line-height: 22px;
     margin: 0;
     min-width: 1px;
+    max-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 2px 7px;
     visibility: hidden;
 }
