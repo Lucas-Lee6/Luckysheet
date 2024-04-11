@@ -5625,16 +5625,10 @@ export default function luckysheetHandler() {
 
     //菜单栏 导出按钮
     $("#luckysheet-exportXlsx-btn-title").click(function() {
-        createExportDialog("url")
-        // const url = exportXlsxInfo?.config?.url;
-        // if(url){
-        // }
-        // const exportXlsxInfo =  Store.plugins.find(plugin => plugin.name === 'exportXlsx')
-        // if(exportXlsxInfo){
-
-        // }else{
-        //     tooltip.info(_locale.exportXlsx.notice, "");
-        // }
+        // 打开导出excel的弹框
+        // createExportDialog("url")
+        // 直接默认导出全部sheet,不弹选择框
+        fetchAndDownloadXlsx({url:'url', order:'all'})
     });
 
     let copychange = function() {
