@@ -19,9 +19,7 @@ const gridHTML = function() {
                         <div id ="luckysheet_info_detail" class="luckysheet_info_detail">
                             <div class="luckysheet-share-logo" title="\${logotitle}"></div>
                             <div class="sheet-name">
-                                <input data-tips="${
-                                    locale_info.tips
-                                }" id="luckysheet_info_detail_input" autocomplete="off" readonly class="luckysheet_info_detail_input luckysheet-mousedown-cancel" value="${
+                                <input id="luckysheet_info_detail_input" autocomplete="off" readonly class="luckysheet_info_detail_input luckysheet-mousedown-cancel" value="${
         locale_info.noName
     }" tabindex="0" dir="ltr" aria-label="${
         locale_info.rename
