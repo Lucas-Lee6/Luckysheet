@@ -12,13 +12,13 @@ const gridHTML = function() {
         luckysheetConfigsetting.userInfo === true
             ? '<i style="font-size:16px;color:#ff6a00;" class="fa fa-taxi" aria-hidden="true"></i> Lucky'
             : luckysheetConfigsetting.userInfo; // When true, use the default HTML string. The rendering of userInfo below uses nested template strings. Otherwise, when display is used and the image path is not passed in, there will be an undefined request
-
+    // 不展示表格名称
     return `<div class="luckysheet">
                     <canvas id="luckysheetTableContentF" style="display:none;" class="luckysheetTableContent"></canvas>
                     <div class="luckysheet-work-area luckysheet-noselected-text">
                         <div id ="luckysheet_info_detail" class="luckysheet_info_detail">
-                            <div class="luckysheet-share-logo" title="\${logotitle}"></div>
-                            <div class="sheet-name">
+                            <div class="luckysheet-share-logo" style="display:none" title="\${logotitle}"></div>
+                            <div class="sheet-name" style="display:none">
                                 <input id="luckysheet_info_detail_input" autocomplete="off" readonly class="luckysheet_info_detail_input luckysheet-mousedown-cancel" value="${
         locale_info.noName
     }" tabindex="0" dir="ltr" aria-label="${

@@ -6955,3 +6955,7 @@ export function openSearchDialog(source = 1){
 export function downloadXlsx(order = 'all'){
     fetchAndDownloadXlsx({url:'url', order})
 }
+// 修改表格名称
+export function changeTitle(value){
+    $("#luckysheet_info_detail_input").val(value);
+}
